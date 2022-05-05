@@ -63,20 +63,21 @@ Learn how associate your domain name to your Elastic IP on this page.
 - Check that your Web Servers can be reached from your browser using new domain name using HTTP protocol – http://< your-domain-name.com >
 
 - Configure Nginx to recognize your new domain name
-Update your nginx.conf with server_name www.<your-domain-name.com> instead of server_name www.domain.com
+Update your nginx.conf with server_name www.< your-domain-name.com > instead of server_name www.domain.com
 
 - Install certbot and request for an SSL/TLS certificate
 
 - Make sure snapd service is active and running: `sudo systemctl status snapd`
 
 - Install certbot: `sudo snap install --classic certbot`
+![snapd-certbot](./images/snapd-certbot.PNG)
 
 - Request your certificate (just follow the certbot instructions – you will need to choose which domain you want your certificate to be issued for, domain name will be looked up from nginx.conf file so make sure you have updated it on step 4).
-
 ```
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 ```
+![certbot](./images/certbot.PNG)
 
 - Test secured access to your Web Solution by trying to reach https://< your-domain-name.com >
 
